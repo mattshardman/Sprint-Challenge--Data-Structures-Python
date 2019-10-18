@@ -50,6 +50,12 @@ f.close()
 
 duplicates = []
 
+def original_search():
+    for name_1 in names_1:
+        for name_2 in names_2:
+            if name_1 == name_2:
+                duplicates.append(name_1)
+
 def bin_search_names():
     names_2_tree = BinarySearchTree(names_2[0])
 
@@ -94,6 +100,7 @@ def embedded_comp_search():
         if name_1 in names_2:
             duplicates.append(name_1)
 
+# original_search()
 # bin_search_names()
 # bin_search_dict_names()
 dic_search_names() # quickest
