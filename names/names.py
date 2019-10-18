@@ -50,12 +50,14 @@ f.close()
 
 duplicates = []
 
-def original_search():
+# O(n * 2)
+def original_search(): 
     for name_1 in names_1:
         for name_2 in names_2:
             if name_1 == name_2:
                 duplicates.append(name_1)
 
+# O(n log n)
 def bin_search_names():
     names_2_tree = BinarySearchTree(names_2[0])
 
@@ -68,6 +70,7 @@ def bin_search_names():
             duplicates.append(name_1)
 
 
+# O(n log n)
 def bin_search_dict_names():
     names_2_dict = {}
 
@@ -83,6 +86,7 @@ def bin_search_dict_names():
             if contains:
                 duplicates.append(name_1)
 
+# O(n)
 def dic_search_names():
     names_2_dict = {}
 
@@ -93,9 +97,8 @@ def dic_search_names():
         if names_2_dict.get(name_1):
             duplicates.append(name_1)
 
-def embedded_comp_search():
-    duplicates = []
 
+def embedded_comp_search():
     for name_1 in names_1:
         if name_1 in names_2:
             duplicates.append(name_1)
@@ -103,8 +106,8 @@ def embedded_comp_search():
 # original_search()
 # bin_search_names()
 # bin_search_dict_names()
-dic_search_names() # quickest
-# embedded_comp_search()
+# dic_search_names() # quickest
+embedded_comp_search()
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
